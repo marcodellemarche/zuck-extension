@@ -31,7 +31,7 @@ function computeExit(dates) {
     const todayStr = formatDateToday(today);
 
     const jobStart = convertTime(dates[0], today);
-    if (jobStart.getHours() > 8) jobStart.setMinutes(jobStart.getMinutes() < 30 ? 30 : 60);
+    if (jobStart.getHours() > 8 && jobStart.getMinutes() > 0) jobStart.setMinutes(jobStart.getMinutes() < 30 ? 30 : 60);
     
 
     console.log('todayStr  ', todayStr);
