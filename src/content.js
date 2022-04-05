@@ -6,8 +6,8 @@ chrome.runtime.onMessage.addListener(
             let times = Array(3).fill(null).map((_, i) => i).map(i => {
                 let res = '';
                 document.querySelectorAll('iframe[id*=".jsp"]').forEach(iframe => {
-                    const timeDivs = iframe.contentDocument.querySelectorAll(`div[id*="grid_timbrus_${i}_2_viewDiv"]`);
-                    if (!!timeDivs && timeDivs.length > 0) res = timeDivs[0].innerText;
+                    const timeDivs = iframe.contentDocument.querySelectorAll('span.timestamp');
+                    if (!!timeDivs && timeDivs.length > 0) res = timeDivs[i].innerText;
                 })
                 return res;
             });
